@@ -12,6 +12,23 @@ function setInnerText(field,area){
     document.getElementById(field).innerText=area;
 }
 
+function addAreaCalculationEntry(shapType,area){
+
+    const addAreaEntry=document.getElementById('add-area-entry');
+
+    const count=addAreaEntry.childElementCount;
+    
+    const p=document.createElement('div');
+    p.classList.add('grid','grid-cols-5','items-center','pt-5','px-2');
+    // p.innerHTML=`${count+1}.${shapType} ${area}cm<sup>2</sup> <button class="btn bg-sky-400 hover:bg-blue-500">Convert</button>`;
+
+    p.innerHTML=`<p class="col-span-2">${count+1}. ${shapType}</p>
+                <p>${area}cm<sup>2</sup></p>
+                <button class=" bg-sky-400 hover:bg-blue-500 col-span-2 rounded py-1">Convert to m<sup>2</sup></button>
+                `;
+
+    addAreaEntry.appendChild(p);
+}
 
 function calculateTriangel(){
 
@@ -31,6 +48,7 @@ function calculateTriangel(){
         }
 
     setInnerText('triangle-area',area);
+    addAreaCalculationEntry('Triangle',area);
 
 }
 
@@ -51,6 +69,7 @@ function calculateRectangle(){
         }
 
     setInnerText('rectangle-area',area);
+    addAreaCalculationEntry('Rectangle',area);
 }
 
 function calculateParallelogram(){
@@ -70,6 +89,7 @@ function calculateParallelogram(){
         }
 
     setInnerText('parallelogram-area',area);
+    addAreaCalculationEntry('Parallelogram',area);
 }
 
 function calculateEllips(){
@@ -89,5 +109,6 @@ function calculateEllips(){
         }
 
     setInnerText('ellipse-area',area);
+    addAreaCalculationEntry('Ellipse',area);
 
 }
