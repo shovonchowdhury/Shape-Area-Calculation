@@ -77,7 +77,7 @@ function calculateEllips(){
     const firstVal=getValueNumber('first-radius-ellips');
     const secondVal=getValueNumber('second-radius-ellip');
 
-    const area=3.1416*firstVal*secondVal;
+    const area=(3.1416*firstVal*secondVal).toFixed(2);
 
     takeNewValue('first-radius-ellips');
     takeNewValue('second-radius-ellip');
